@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:holidays/features/list_holidays/cubit/list_holidays_cubit.dart';
+import 'package:holidays/utils/_index.dart';
 import 'package:intl/intl.dart';
 
 class ListHolidayPage extends StatefulWidget {
@@ -41,12 +42,8 @@ class _ListHolidayPageState extends State<ListHolidayPage> {
                     itemBuilder: (context, index) => ListTile(
                       title: Text(holidays[index].name),
                       subtitle: Text(holidays[index].date),
-                      trailing: Text(
-                        DateFormat.yMEd().format(
-                          DateTime.parse(holidays[index].createdAt)
-                        )
-                      ),
-                      
+                      trailing: Text(DateFormat.yMEd()
+                          .format(DateTime.parse(holidays[index].createdAt))),
                     ),
                     separatorBuilder: (context, index) => Divider(),
                     itemCount: holidays.length,
@@ -56,6 +53,16 @@ class _ListHolidayPageState extends State<ListHolidayPage> {
             ),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        onPressed: () => Navigator.of(context)
+            .pushNamed(HolidayRouter.createHolidayRoute)
+            .then<dynamic>(
+                (_) => context.read<ListHolidaysCubit>().listHolidays()),
       ),
     );
   }
