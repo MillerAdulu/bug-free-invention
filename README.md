@@ -4,6 +4,7 @@ Created for purposes of seeing how to use graphql in a manner that promotes sepa
 
 API Code: https://github.com/MillerAdulu/shiny-octo-barnacle
 API URL: https://app-holidays.herokuapp.com/graphiql
+APK Available in the artifacts section
 ---
 
 ## Getting Started 🚀
@@ -18,13 +19,13 @@ To run the desired flavor either use the launch configuration in VSCode/Android 
 
 ```sh
 # Development
-$ flutter run --flavor development --target lib/main_development.dart
+$ make gen && flutter run --flavor development --target lib/main_development.dart
 
 # Staging
-$ flutter run --flavor staging --target lib/main_staging.dart
+$ make gen && flutter run --flavor staging --target lib/main_staging.dart
 
 # Production
-$ flutter run --flavor production --target lib/main_production.dart
+$ make gen && flutter run --flavor production --target lib/main_production.dart
 ```
 
 _\*Holidays works on iOS, Android, and Web._
