@@ -41,9 +41,14 @@ class _ListHolidayPageState extends State<ListHolidayPage> {
                 : ListView.separated(
                     itemBuilder: (context, index) => ListTile(
                       title: Text(holidays[index].name),
-                      subtitle: Text(holidays[index].date),
-                      trailing: Text(DateFormat.yMEd()
-                          .format(DateTime.parse(holidays[index].createdAt))),
+                      subtitle: Text("On ${DateFormat.yMEd().format(
+                          DateTime.parse(holidays[index].date),
+                        )}"),
+                      trailing: Text(
+                        DateFormat.yMEd().format(
+                          DateTime.parse(holidays[index].createdAt),
+                        ),
+                      ),
                     ),
                     separatorBuilder: (context, index) => Divider(),
                     itemCount: holidays.length,
