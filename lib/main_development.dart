@@ -5,9 +5,14 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:holidays/bootstrap.dart';
 import 'package:holidays/holidays/holidays.dart';
+import 'package:holidays/utils/_index.dart';
 
 void main() {
-  bootstrap(() => const Holidays());
+  bootstrap(() => MultiBlocProvider(
+        providers: Singletons.registerCubits(),
+        child: const Holidays(),
+      ));
 }

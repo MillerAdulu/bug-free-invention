@@ -6,7 +6,7 @@ class LocalHoliday with _$LocalHoliday {
   factory LocalHoliday(
     String uuid,
     String name,
-    String day,
+    String date,
     String createdAt,
     String updatedAt,
   ) = _LocalHoliday;
@@ -29,7 +29,7 @@ class LocalHolidays with _$LocalHolidays {
 class CreateHolidayDTO with _$CreateHolidayDTO {
   factory CreateHolidayDTO({
     required String name,
-    required String day,
+    required String date,
   }) = _CreateHolidayDTO;
 
   factory CreateHolidayDTO.fromJson(Map<String, dynamic> json) =>

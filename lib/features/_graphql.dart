@@ -13,15 +13,14 @@ class HolidaySchema {
     ){
       uuid
       name
-      day
+      date
       updatedAt
       createdAt
     }
   }
   ''';
 
-  static MutationOptions createHoliday(
-       CreateHolidayDTO createHolidayDTO) {
+  static MutationOptions createHoliday(CreateHolidayDTO createHolidayDTO) {
     return MutationOptions(
       document: gql(_createHoliday),
       variables: createHolidayDTO.toJson(),
@@ -34,7 +33,7 @@ class HolidaySchema {
     listDays {
       uuid
       name
-      day
+      date
       updatedAt
       createdAt
     }

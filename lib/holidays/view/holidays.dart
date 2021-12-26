@@ -8,6 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:holidays/l10n/l10n.dart';
+import 'package:holidays/utils/_index.dart';
 
 class Holidays extends StatelessWidget {
   const Holidays({Key? key}) : super(key: key);
@@ -26,7 +27,8 @@ class Holidays extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const Text('Holidays'),
+      onGenerateRoute: HolidayRouter.generateRoute,
+      initialRoute: HolidayRouter.landingRoute,
     );
   }
 }

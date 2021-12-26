@@ -1,6 +1,5 @@
 part of holiday_local_models;
 
-
 class Failure implements Exception {
   Failure({
     required this.message,

@@ -1,6 +1,6 @@
 library holiday_remote_models;
-import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'holiday.dart';
 

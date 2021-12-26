@@ -6,7 +6,7 @@ class RemoteHoliday with _$RemoteHoliday {
   factory RemoteHoliday(
     String uuid,
     String name,
-    String day,
+    String date,
     String createdAt,
     String updatedAt,
   ) = _RemoteHoliday;
