@@ -42,8 +42,8 @@ class _ListHolidayPageState extends State<ListHolidayPage> {
                     itemBuilder: (context, index) => ListTile(
                       title: Text(holidays[index].name),
                       subtitle: Text("On ${DateFormat.yMEd().format(
-                          DateTime.parse(holidays[index].date),
-                        )}"),
+                        DateTime.parse(holidays[index].date),
+                      )}"),
                       trailing: Text(
                         DateFormat.yMEd().format(
                           DateTime.parse(holidays[index].createdAt),
