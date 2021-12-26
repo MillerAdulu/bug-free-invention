@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:graphql/client.dart' as GQL;
 
 part 'errors.dart';
+part 'group.dart';
 
 // Generated model files
 part '_index.g.dart'; // Needed for toJson, fromJson
