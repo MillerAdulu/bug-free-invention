@@ -5,9 +5,9 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:holidays/app/app.dart';
 import 'package:holidays/bootstrap.dart';
+import 'package:holidays/holidays/holidays.dart';
 
 void main() {
-  bootstrap(() => const App());
+  bootstrap(() => const Holidays());
 }

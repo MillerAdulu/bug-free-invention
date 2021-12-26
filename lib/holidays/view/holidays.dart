@@ -7,11 +7,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:holidays/counter/counter.dart';
 import 'package:holidays/l10n/l10n.dart';
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+class Holidays extends StatelessWidget {
+  const Holidays({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const Text('Holidays'),
     );
   }
 }
