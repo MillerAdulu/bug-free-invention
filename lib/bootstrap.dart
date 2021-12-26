@@ -33,7 +33,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   HolidayConfig(
     values: HolidayValues(
-      apiURL: 'http://localhost:4000/graphql',
+      apiURL: 'https://app-holidays.herokuapp.com/graphiql',
     ),
   );
 
