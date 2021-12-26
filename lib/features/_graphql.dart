@@ -5,11 +5,11 @@ class HolidaySchema {
   static String _createHoliday = r'''
   mutation(
     $name: String!,
-    $day: String!
+    $date: String!
   ){
-    linkAccountToUser(
+    createDay(
       name: $name,
-      day: $day
+      date: $date
     ){
       uuid
       name

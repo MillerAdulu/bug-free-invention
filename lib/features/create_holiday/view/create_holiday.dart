@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:holidays/features/create_holiday/cubit/create_holiday_cubit.dart';
 
 class CreateHolidayPage extends StatefulWidget {
   const CreateHolidayPage({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class _CreateHolidayPageState extends State<CreateHolidayPage> {
       ),
       body: Center(
         child: SingleChildScrollView(
-          padding:  EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -31,7 +33,6 @@ class _CreateHolidayPageState extends State<CreateHolidayPage> {
               SizedBox(height: 8),
               TextFormField(
                 controller: _nameController,
-                
               ),
               SizedBox(height: 16),
               GestureDetector(
@@ -48,14 +49,47 @@ class _CreateHolidayPageState extends State<CreateHolidayPage> {
               SizedBox(height: 32),
               Align(
                 alignment: Alignment.center,
-                child: SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: GFButton(
-                    
-                    child: Text('Create Now'),
-                    onPressed: (){},
-                  ),
+                child: BlocConsumer<CreateHolidayCubit, CreateHolidayState>(
+                  listener: (context, state) {
+                    state.when(
+                      initial: () {},
+                      loading: () {},
+                      loaded: (success) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Holiday created successfully"),
+                          ),
+                        );
+
+                        Navigator.of(context).pop();
+                      },
+                      error: (message) =>
+                          ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(message),
+                        ),
+                      ),
+                    );
+                  },
+                  builder: (context, state) {
+                    return SizedBox(
+                      height: 50,
+                      width: double.infinity,
+                      child: GFButton(
+                        child: state.when(
+                          initial: () => Text('Create Now'),
+                          loading: () => Text('Loading ...'),
+                          loaded: (_) => Text('Create Now'),
+                          error: (_) => Text('Create Now'),
+                        ),
+                        onPressed: () =>
+                            context.read<CreateHolidayCubit>().createHoliday(
+                                  name: _nameController.text,
+                                  date: _selectedDate.toString(),
+                                ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

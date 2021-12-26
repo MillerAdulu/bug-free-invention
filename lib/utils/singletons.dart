@@ -9,5 +9,10 @@ class Singletons {
             holidayService: _holidayService,
           ),
         ),
+        BlocProvider<CreateHolidayCubit>(
+          create: (context) => CreateHolidayCubit(
+            holidayService: _holidayService,
+          ),
+        ),
       ];
 }
