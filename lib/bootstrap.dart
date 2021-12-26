@@ -10,6 +10,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:holidays/utils/_index.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -29,6 +30,12 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
+
+  HolidayConfig(
+    values: HolidayValues(
+      apiURL: 'http://localhost:4000/graphql',
+    ),
+  );
 
   await runZonedGuarded(
     () async {
