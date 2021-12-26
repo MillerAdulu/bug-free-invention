@@ -45,6 +45,19 @@ class _CreateHolidayPageState extends State<CreateHolidayPage> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
+              SizedBox(height: 32),
+              Align(
+                alignment: Alignment.center,
+                child: SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: GFButton(
+                    
+                    child: Text('Create Now'),
+                    onPressed: (){},
+                  ),
+                ),
+              ),
             ],
           ),
         ),
