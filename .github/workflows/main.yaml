@@ -1,4 +1,4 @@
-name: onspace
+name: holidays
 
 on: [pull_request, push]
 
